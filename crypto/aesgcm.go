@@ -38,6 +38,7 @@ func EncodeAesGCM(plainString string) (string, error) {
 	}
 
 	task := make([]byte, gcmBlockSize)
+	copy(task[0:4], []byte("flag bits")) // no use, just a flag
 	copy(task[4:], nonce)
 	cipherText := aesgcm.Seal(task, nonce, []byte(OutStr), nil)
 

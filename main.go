@@ -7,8 +7,11 @@ import (
 )
 
 func main() {
-	testString := "test123"
+	testString := "Ph!abcdefg"
+
 	encodedStr, _ := crypto.EncodeAesGCM(testString)
+	fmt.Println("encodedStr is", encodedStr)
+
 	decodedStr, _ := crypto.DecodeAesGCM(encodedStr)
-	fmt.Print(decodedStr)
+	fmt.Println("decodedStr is", decodedStr)
 }
